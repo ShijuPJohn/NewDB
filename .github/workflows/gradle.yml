@@ -23,6 +23,8 @@ jobs:
       run: ls build/libs
     - name: cp
       run:  cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar $HOME
+    - name: mdkir
+      run:  mkdir $HOME/var/lib/docker/tmp/
       
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
