@@ -25,10 +25,12 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
-    - uses: actions/checkout@master
-    - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+
+    - uses: mr-smithers-excellent/docker-build-push@v2
       with:
-        name: shijupjohn/newdb1:v1
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+       image: shijupjohn/newdb1:v1
+       tag: latest
+       registry: registry-url.io
+       dockerfile: Dockerfile
+       username: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
