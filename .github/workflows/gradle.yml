@@ -31,5 +31,3 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
-    - name: Publish Docker
-      uses: elgohr/Publish-Docker-Github-Action@2.12
