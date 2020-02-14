@@ -19,3 +19,5 @@ jobs:
       run: ./gradlew build -x test
     - name: pwd
       run: pwd
+    - name: ls
+      run: ls /build/libs/
