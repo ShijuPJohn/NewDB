@@ -27,4 +27,6 @@ jobs:
       run:  sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar $HOME
     - name: Build the Docker image
       run: docker build https://github.com/ShijuPJohn/NewDB.git --tag my-image-name:$(date +%s)
+    - name: ls
+      run: ls
 
