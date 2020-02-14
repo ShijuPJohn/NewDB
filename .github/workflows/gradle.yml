@@ -31,4 +31,6 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
+    - name: docker push
+      run: sudo docker push shijupjohn/newdb1:$(date +%s)
 
