@@ -21,18 +21,10 @@ jobs:
       run: pwd
     - name: ls
       run: ls build/libs
-    - name: mkdir
-      run:  sudo mkdir /var/lib/docker/tmp/docker-builder456386987/
-    - name: cp
-      run:  sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar $HOME
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag shijupjohn/newdb1:v1
     - name: ls
       run: ls
     - name: docker images
       run: sudo docker images
-      
- 
     - uses: actions/checkout@master
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
