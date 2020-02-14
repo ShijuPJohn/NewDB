@@ -22,7 +22,7 @@ jobs:
     - name: ls
       run: ls build/libs
     - name: cp
-      run:  cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar stat /var/lib/docker/tmp/docker-builder456386987/
+      run:  sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar stat /var/lib/docker/tmp/docker-builder456386987/
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
