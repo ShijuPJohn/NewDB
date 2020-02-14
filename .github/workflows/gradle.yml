@@ -35,3 +35,5 @@ jobs:
       run: sudo docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
     - name: docker push
       run: sudo docker push shijupjohn/newdb1:v1
+    - name: Publish Docker
+      uses: elgohr/Publish-Docker-Github-Action@2.12
