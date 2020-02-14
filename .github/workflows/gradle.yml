@@ -31,5 +31,7 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
+    - name: docker login
+      run: sudo docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
     - name: docker push
       run: sudo docker push shijupjohn/newdb1:v1
