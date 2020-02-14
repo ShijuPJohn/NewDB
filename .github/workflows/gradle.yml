@@ -16,4 +16,20 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build -x test
+    - name: pwd
+      run: pwd
+    - name: ls
+      run: ls build/libs
+    - name: mkdir
+      run:  sudo mkdir /var/lib/docker/tmp/docker-builder456386987/
+    - name: cp
+      run:  sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar $HOME
+    - name: Build the Docker image
+      run: docker build https://github.com/ShijuPJohn/NewDB.git --tag shijupjohn/newdb1:v1
+    - name: ls
+      run: ls
+    - name: docker images
+      run: sudo docker images
+    - name: docker push
+      run: sudo docker push shijupjohn/newdb1:v1
