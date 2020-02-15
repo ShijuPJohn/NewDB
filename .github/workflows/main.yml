@@ -17,7 +17,7 @@ jobs:
        key: ${{ secrets.EC2_KEY }}
        port: ${{ secrets.EC2_PORT }}
        script: |
-        sudo docker container ls
         sudo docker stop newdbcontainer
+        sudo docker system prune -f
         sudo docker pull shijupjohn/newdb1:v1
         sudo docker run -d -p 8080:8080 --network=host --name newdbcontainer shijupjohn/newdb1:v1
