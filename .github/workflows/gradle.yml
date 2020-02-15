@@ -28,8 +28,6 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: jarfile
-    - name: ls
-      run: ls
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
