@@ -33,7 +33,7 @@ jobs:
     - name: pwd
       run: pwd
     - name: ls
-      run: ls build/libs
+      run: ls
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
