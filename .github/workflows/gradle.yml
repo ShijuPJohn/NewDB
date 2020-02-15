@@ -34,7 +34,7 @@ jobs:
     - name: Upload math result for job 1
       uses: actions/upload-artifact@v1
       with:
-        name: upload jar file
+        name: jarfile
         path: build/libs/
  
     - uses: actions/checkout@master
@@ -44,6 +44,12 @@ jobs:
       run: ls
     - name: ls
       run: ls jarfile/
+    - name: Download math result for job 1
+      uses: actions/download-artifact@v1
+      with:
+        name: jarfile
+    - name: ls
+      run: sudo cp jarfile/*.jar build/libs
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
