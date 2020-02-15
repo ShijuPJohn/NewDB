@@ -17,20 +17,6 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build -x test
-    - name: pwd
-      run: pwd
-    - name: ls
-      run: ls build/libs
-    - name: mkdir
-      run:  sudo mkdir /var/lib/docker/tmp/docker-builder456386987/
-    - name: ls
-      run: ls
-    - name: docker images
-      run: sudo docker images
-    - name: cp
-      run: sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar ./jarfile/
-    - name: ls
-      run: ls jarfile/
     - name: Upload math result for job 1
       uses: actions/upload-artifact@v1
       with:
@@ -38,12 +24,6 @@ jobs:
         path: build/libs/
  
     - uses: actions/checkout@master
-    - name: pwd
-      run: pwd
-    - name: ls
-      run: ls
-    - name: ls
-      run: ls jarfile/
     - name: Download math result for job 1
       uses: actions/download-artifact@v1
       with:
