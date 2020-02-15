@@ -29,12 +29,16 @@ jobs:
       run: sudo docker images
     - name: cp
       run: sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar ./jarfile/
+    - name: ls
+      run: ls jarfile/
  
     - uses: actions/checkout@master
     - name: pwd
       run: pwd
     - name: ls
       run: ls
+    - name: ls
+      run: ls jarfile/
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
