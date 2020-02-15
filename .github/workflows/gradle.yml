@@ -17,14 +17,14 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build -x test
-    - name: Upload math result for job 1
+    - name: Upload jar file
       uses: actions/upload-artifact@v1
       with:
         name: jarfile
         path: build/libs/
  
     - uses: actions/checkout@master
-    - name: Download math result for job 1
+    - name: Download jar file
       uses: actions/download-artifact@v1
       with:
         name: jarfile
