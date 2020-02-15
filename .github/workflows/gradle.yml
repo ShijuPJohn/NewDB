@@ -31,7 +31,8 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
-      
+    - name: ls
+      run: ls build/libs
  
     - uses: actions/checkout@master
     - name: Publish to Registry
