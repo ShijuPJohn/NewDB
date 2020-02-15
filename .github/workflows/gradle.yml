@@ -42,4 +42,7 @@ jobs:
        username: ${{ secrets.EC2_USERNAME }}
        key: ${{ secrets.EC2_KEY }}
        port: ${{ secrets.EC2_PORT }}
-       script: whoami
+       script: |
+        sudo docker stop newdbcontainer
+        sudo docker pull shijupjohn/newdb1:v1
+        sudo docker run -d -p 8080:8080 --network=host --name newdbcontainer shijupjohn/newdb1:v1
