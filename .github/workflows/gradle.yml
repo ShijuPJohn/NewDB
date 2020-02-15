@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: upload jar file
-        path: build/libs/*.jar
+        path: build/libs/
  
     - uses: actions/checkout@master
     - name: pwd
