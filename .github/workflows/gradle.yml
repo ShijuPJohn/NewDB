@@ -31,6 +31,11 @@ jobs:
       run: sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar ./jarfile/
     - name: ls
       run: ls jarfile/
+    - name: Upload math result for job 1
+      uses: actions/upload-artifact@v1
+      with:
+        name: upload jar file
+        path: build/libs/*.jar
  
     - uses: actions/checkout@master
     - name: pwd
