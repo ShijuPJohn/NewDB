@@ -27,7 +27,8 @@ jobs:
       run: ls
     - name: docker images
       run: sudo docker images
-
+    - name: cp
+      run: sudo cp /home/runner/work/NewDB/NewDB/build/libs/demo-0.0.1-SNAPSHOT.jar ./jarfile/
  
     - uses: actions/checkout@master
     - name: pwd
