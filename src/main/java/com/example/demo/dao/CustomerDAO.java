@@ -42,6 +42,6 @@ public class CustomerDAO {
                 customer.getFirstName(), customer.getLastName(), id);
     }
 public List<Customer> selectAll(){
-        return jdbcTemplate.query("SELECT * FROM customers", new CustomerRowMapper());
+        return jdbcTemplate.query("SELECT * FROM customers ORDER BY id", new CustomerRowMapper());
 }
 }
