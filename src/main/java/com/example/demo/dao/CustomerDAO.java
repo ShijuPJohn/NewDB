@@ -2,10 +2,12 @@ package com.example.demo.dao;
 
 import com.example.demo.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 @Component
 public class CustomerDAO {
@@ -26,7 +28,8 @@ public class CustomerDAO {
 
 
     public Customer select(int id) {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name FROM customers WHERE id = ?", new Object[]{id}, new CustomerRowMapper());
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name FROM customers WHERE id = ?",
+                new Object[]{id}, new CustomerRowMapper());
     }
 
     public void delete(int id) {
@@ -38,5 +41,7 @@ public class CustomerDAO {
         jdbcTemplate.update("UPDATE customers SET first_name = ?, last_name = ? WHERE id =?",
                 customer.getFirstName(), customer.getLastName(), id);
     }
-
+public List<Customer> selectAll(){
+        return jdbcTemplate.query("SELECT * FROM customers", new CustomerRowMapper());
+}
 }

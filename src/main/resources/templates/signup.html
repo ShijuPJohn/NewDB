@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+<h3>Sign Up Here</h3>
+<form action="#" th:action="@{/users}" th:object="${newCustomer}" method="post">
+   First Name: <input type="text" name="first_name" required maxlength="50" th:field="*{firstName}"> <br> <br><br>
+    Second Name: <input type="text" name="last_name" required maxlength="50" th:field="*{lastName}"> <br><br> <br><br>
+    <input type="submit" value="Register"> <input type="reset">
+</form>
+</body>
+</html>

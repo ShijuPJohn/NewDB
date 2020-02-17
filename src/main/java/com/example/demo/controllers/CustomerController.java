@@ -8,12 +8,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class CustomerController {
     @Autowired
     public CustomerDAO dao;
 
+    @GetMapping("/")
+    public String indexGet( Model model) {
 
+        List<Customer> customer = dao.selectAll();
+        model.addAttribute("listOfObjects",customer);
+//        model.addAttribute("id",customer.get(1).getId());
+//        model.addAttribute("firstName",customer.get(1).getFirstName());
+//        model.addAttribute("lastName",customer.get(1).getLastName());
+        return "index";
+    }
+
+    @GetMapping("/signup")
+    public String signupGet( Model model) {
+        model.addAttribute("newCustomer", new Customer());
+        return "signup";
+    }
     @GetMapping("/users/{id}")
     public String get(@PathVariable("id") int id, Model model) {
         Customer customer = dao.select(id);
@@ -32,7 +49,7 @@ public class CustomerController {
 
 
     @PostMapping(path = "/users")
-    public String post(@RequestBody Customer newCustomer) {
+    public String post(@ModelAttribute Customer newCustomer) {
         dao.insert(newCustomer);
         return "hello";
     }
