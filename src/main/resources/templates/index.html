@@ -7,9 +7,9 @@
 <h3><a href="signup"> Register New User</a></h3>
 <table>
     <tr>
-        <th>NAME</th>
-        <th>PRICE</th>
-        <th>IN STOCK</th>
+        <th>CUSTOMER ID</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
     </tr>
     <tr th:each="customerone : ${listOfObjects}">
         <td th:text="${customerone.id}">Onions</td>
