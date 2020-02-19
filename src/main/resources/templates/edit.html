@@ -7,8 +7,8 @@
 <h3>Edit a customer</h3>
 <form action="#"  th:object="${customerObject}" th:action="@{/users/update/{id}(id=${customerObject.id})}" th:method="post">
     <h4  name="id"  th:text="'id: '+${customerObject.id}"></h4>
-    First Name: <input type="text" name="first_name" required maxlength="50" th:field="*{firstName}"> <br> <br><br>
-    Second Name:<input type="text" name="first_name" required maxlength="50" th:field="*{lastName}">  <br><br> <br><br>
+    First Name: <input type="text" name="first_name" required maxlength="50" th:field="${customerObject.firstName}"> <br> <br><br>
+    Second Name:<input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br> <br><br>
     <input type="submit" value="Register"> <input type="reset">
 </form>
 </body>

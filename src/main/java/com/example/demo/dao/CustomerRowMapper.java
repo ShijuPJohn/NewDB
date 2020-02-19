@@ -13,6 +13,9 @@ public class CustomerRowMapper implements RowMapper<Customer> {
         customer.setId(rs.getLong("id"));
         customer.setFirstName(rs.getString("first_name"));
         customer.setLastName(rs.getString("last_name"));
+        customer.setEmail(rs.getString("email"));
+        customer.setUsername(rs.getString("user_name"));
+        customer.setPassword(rs.getString("password"));
         return customer;
 
     }

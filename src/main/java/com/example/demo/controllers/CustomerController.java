@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.Customer;
+import com.example.demo.LoginObject;
 import com.example.demo.dao.CustomerDAO;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -16,16 +18,35 @@ public class CustomerController {
     public CustomerDAO dao;
 
     @GetMapping("/")
-    public String indexGet( Model model) {
+    public String indexGet(Model model) {
         List<Customer> customer = dao.selectAll();
-        model.addAttribute("listOfObjects",customer);
+        model.addAttribute("listOfObjects", customer);
+        model.addAttribute("loginObject", new LoginObject());
         return "index";
     }
+
+    @PostMapping(path = "/")
+    public String loginPost(LoginObject loginObject, Model model, HttpSession session) {
+        Customer currenctCustomer = dao.selectByUsername(loginObject.getUsername());
+        System.out.println("data fetched");
+        if (currenctCustomer == null) {
+            System.out.println("incorrect username or password");
+        } else {
+            if (currenctCustomer.getPassword().equals(loginObject.getPassword())) {
+                session.setAttribute("user", currenctCustomer);
+                System.out.println("Login success");
+            } else {
+                System.out.println( "incorrect username or password");
+            }
+        }
+        return "success";
+    }
+
 
     @GetMapping("/users/edit/{id}")
     public String editWithId(@PathVariable int id, Model model) {
         Customer customer = dao.select(id);
-        model.addAttribute("customerObject",customer);
+        model.addAttribute("customerObject", customer);
         return "edit";
     }
 
@@ -37,7 +58,7 @@ public class CustomerController {
 
 
     @GetMapping("/signup")
-    public String signupGet( Model model) {
+    public String signupGet(Model model) {
         model.addAttribute("newCustomer", new Customer());
         return "signup";
     }
@@ -45,17 +66,17 @@ public class CustomerController {
     @GetMapping("/users/{id}")
     public String get(@PathVariable("id") int id, Model model) {
         Customer customer = dao.select(id);
-        model.addAttribute("id",customer.getId());
-        model.addAttribute("first_name",customer.getFirstName());
-        model.addAttribute("last_name",customer.getLastName());
+        model.addAttribute("id", customer.getId());
+        model.addAttribute("first_name", customer.getFirstName());
+        model.addAttribute("last_name", customer.getLastName());
         return "getid";
     }
 
 
     @GetMapping("/users/print")
-    public String get(@RequestParam(defaultValue = "shiju",required = false)  String name, Model model) {
-        model.addAttribute("user",name);
-        return "hello";
+    public String get (String name, Model model) {
+        model.addAttribute("user", name);
+        return "success";
     }
 
 

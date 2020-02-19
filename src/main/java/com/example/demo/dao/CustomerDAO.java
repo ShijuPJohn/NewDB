@@ -18,18 +18,25 @@ public class CustomerDAO {
 
     @PostConstruct
     public void initDB() {
-        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS customers(id BIGSERIAL, first_name VARCHAR(255), last_name VARCHAR(255))");
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS customers(id BIGSERIAL, first_name VARCHAR(255)," +
+                "last_name VARCHAR(255), email VARCHAR(255) UNIQUE, user_name VARCHAR(255) UNIQUE," +
+                " password VARCHAR(255), is_admin BOOLEAN)");
     }
 
     public void insert(Customer customer) {
-        jdbcTemplate.update("INSERT INTO customers(first_name, last_name) VALUES (?,?)",
-                customer.getFirstName(), customer.getLastName());
+        jdbcTemplate.update("INSERT INTO customers(first_name, last_name, email, user_name, password, is_admin) VALUES (?,?,?,?,?,?)",
+                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), true);
     }
 
 
     public Customer select(int id) {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name FROM customers WHERE id = ?",
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin FROM customers WHERE id = ?",
                 new Object[]{id}, new CustomerRowMapper());
+    }
+
+    public Customer selectByUsername(String username) {
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin FROM customers WHERE user_name = ?",
+                new Object[]{username}, new CustomerRowMapper());
     }
 
     public void delete(int id) {
@@ -41,7 +48,8 @@ public class CustomerDAO {
         jdbcTemplate.update("UPDATE customers SET first_name = ?, last_name = ? WHERE id =?",
                 customer.getFirstName(), customer.getLastName(), id);
     }
-public List<Customer> selectAll(){
+
+    public List<Customer> selectAll() {
         return jdbcTemplate.query("SELECT * FROM customers ORDER BY id", new CustomerRowMapper());
-}
+    }
 }

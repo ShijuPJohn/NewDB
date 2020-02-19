@@ -7,7 +7,11 @@
 <h3>Sign Up Here</h3>
 <form action="#" th:action="@{/users}" th:object="${newCustomer}" method="post">
    First Name: <input type="text" name="first_name" required maxlength="50" th:field="*{firstName}"> <br> <br><br>
-    Second Name: <input type="text" name="last_name" required maxlength="50" th:field="*{lastName}"> <br><br> <br><br>
+    Last Name: <input type="text" name="last_name" required maxlength="50" th:field="*{lastName}"> <br><br> <br>
+    Username: <input type="text" name="last_name" required maxlength="50" th:field="*{username}"> <br><br> <br>
+    Email ID: <input type="text" name="last_name" required maxlength="50" th:field="*{email}"> <br><br> <br>
+    Password: <input type="password" name="last_name" required maxlength="50" th:field="*{password}"> <br><br> <br>
+
     <input type="submit" value="Register"> <input type="reset">
 </form>
 </body>
