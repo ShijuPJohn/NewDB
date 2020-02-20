@@ -21,7 +21,6 @@ public class CustomerController {
     @GetMapping("/")
     public String indexGet(Model model) {
         List<Customer> customer = dao.selectAll();
-        model.addAttribute("listOfObjects", customer);
         model.addAttribute("loginObject", new LoginObject());
         return "index";
     }
@@ -32,24 +31,30 @@ public class CustomerController {
         System.out.println(exists);
         if (!exists) {
             System.out.println("incorrect username or password");
+            model.addAttribute("logError","logError");
+            model.addAttribute("loginObject", new LoginObject());
+            return "index";
         } else {
             Customer currentCustomer = dao.selectByUsername(loginObject.getUsername());
             if (currentCustomer.getPassword().equals(loginObject.getPassword())) {
                 session.setAttribute("user", currentCustomer);
                 System.out.println("Login success");
+                return "redirect:/home";
             } else {
                 System.out.println( "incorrect username or password");
+                model.addAttribute("logError","logError");
+                model.addAttribute("loginObject", new LoginObject());
+                return "index";
             }
         }
-        return "redirect:/home";
+
     }
 
     @GetMapping("/home")
     public String homeGet(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Customer loggedInCustomer = (Customer) session.getAttribute("user");
-        model.addAttribute("firstName",loggedInCustomer.getFirstName());
-        model.addAttribute("lastName",loggedInCustomer.getLastName());
+        model.addAttribute("loggedInUser",loggedInCustomer);
         return "home";
     }
 

@@ -4,8 +4,11 @@
     <title>Welcome!</title>
 </head>
 <body>
-<h2 th:text =" ${firstName} +'!'"></h2>
-<h2 th:text ="${lastName} +'!'"></h2>
+<h2 th:text ="'First Name :'+ ${loggedInUser.firstName}"></h2>
+<h2 th:text ="'Last Name :'+ ${loggedInUser.lastName}"></h2>
+<h2 th:text ="'E-Mail:'+ ${loggedInUser.email}"></h2>
+<h2 th:text ="'User Name :'+ ${loggedInUser.username}"></h2>
+
 <a href="/logout">Log Out</a>
 </body>
 </html>

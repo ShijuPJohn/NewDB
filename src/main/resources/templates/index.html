@@ -5,38 +5,16 @@
 </head>
 <body>
 <h3>Sign in</h3>
-<form action="#" th:action="@{/}"  th:method="post" th:object = "${loginObject}" >
-    User Name: <input type="text" name="username" required maxlength="50" th:field = "*{username}"> <br> <br><br>
-    Password: <input type="text" name="password" required maxlength="50" th:field = "*{password}"> <br><br> <br><br>
+<span th:if="${logError != null}" class="error"><font color="RED"> Wrong username or password</font></span>
+<form action="#" th:action="@{/}" th:method="post" th:object="${loginObject}">
+    User Name: <input type="text" name="username" required maxlength="50" th:field="*{username}"> <br> <br><br>
+    Password: <input type="password" name="password" required maxlength="50" th:field="*{password}"> <br><br> <br><br>
     <input type="submit" value="Submit"> <input type="reset">
-    <br>
-    <br>
-    <h3><a href="signup"> Register New User</a></h3>
-    <br>
-    <br>
-    <br>
-    <br>
-    <table>
-        <tr>
-            <th>CUSTOMER ID</th>
-            <th>FIRST NAME</th>
-            <th>LAST NAME</th>
-            <th>EMAIL</th>
-            <th>USERNAME</th>
-            <th>PASSWORD</th>
-        </tr>
-        <tr th:each="customerone : ${listOfObjects}">
-            <td th:text="${customerone.id}"></td>
-            <td th:text="${customerone.firstName}"></td>
-            <td th:text="${customerone.lastName}"></td>
-            <td th:text="${customerone.email}"></td>
-            <td th:text="${customerone.username}"></td>
-            <td th:text="${customerone.password}"></td>
-
-            <td><a th:href="@{/users/edit/{id}(id=${customerone.id})}"><img th:src="@{/edit.png }" width="30" height="30"/></a></td>
-            <td><a th:href="@{/users/delete/{id}(id=${customerone.id})}"><img th:src="@{/delete.png }" width="30" height="30"/></a></td>
-        </tr>
-    </table>
 </form>
+
+<br>
+<br>
+<h3><a href="signup">Sign Up</a></h3>
+
 </body>
 </html>
