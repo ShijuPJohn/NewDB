@@ -27,13 +27,14 @@ public class CustomerController {
 
     @PostMapping(path = "/")
     public String loginPost(LoginObject loginObject, Model model, HttpSession session) {
-        Customer currenctCustomer = dao.selectByUsername(loginObject.getUsername());
-        System.out.println("data fetched");
-        if (currenctCustomer == null) {
+        boolean exists = dao.exists(loginObject.getUsername());
+        System.out.println(exists);
+        if (!exists) {
             System.out.println("incorrect username or password");
         } else {
-            if (currenctCustomer.getPassword().equals(loginObject.getPassword())) {
-                session.setAttribute("user", currenctCustomer);
+            Customer currentCustomer = dao.selectByUsername(loginObject.getUsername());
+            if (currentCustomer.getPassword().equals(loginObject.getPassword())) {
+                session.setAttribute("user", currentCustomer);
                 System.out.println("Login success");
             } else {
                 System.out.println( "incorrect username or password");

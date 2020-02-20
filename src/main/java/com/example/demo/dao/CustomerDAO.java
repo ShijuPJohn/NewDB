@@ -18,8 +18,7 @@ public class CustomerDAO {
 
     @PostConstruct
     public void initDB() {
-        jdbcTemplate.execute("DROP TABLE IF EXISTS customers");
-        jdbcTemplate.execute("CREATE TABLE customers(id BIGSERIAL, first_name VARCHAR(255)," +
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS customers(id BIGSERIAL, first_name VARCHAR(255)," +
                 "last_name VARCHAR(255), email VARCHAR(255) UNIQUE, user_name VARCHAR(255) UNIQUE," +
                 " password VARCHAR(255), is_admin BOOLEAN)");
     }
@@ -27,6 +26,10 @@ public class CustomerDAO {
     public void insert(Customer customer) {
         jdbcTemplate.update("INSERT INTO customers(first_name, last_name, email, user_name, password, is_admin) VALUES (?,?,?,?,?,?)",
                 customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), true);
+    }
+
+    public boolean exists(String username){
+        return !jdbcTemplate.queryForList("SELECT * FROM customers WHERE user_name=?",username).isEmpty();
     }
 
 
