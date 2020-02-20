@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -40,9 +41,24 @@ public class CustomerController {
                 System.out.println( "incorrect username or password");
             }
         }
-        return "success";
+        return "redirect:/home";
     }
 
+    @GetMapping("/home")
+    public String homeGet(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        Customer loggedInCustomer = (Customer) session.getAttribute("user");
+        model.addAttribute("firstName",loggedInCustomer.getFirstName());
+        model.addAttribute("lastName",loggedInCustomer.getLastName());
+        return "home";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "logout";
+    }
 
     @GetMapping("/users/edit/{id}")
     public String editWithId(@PathVariable int id, Model model) {
