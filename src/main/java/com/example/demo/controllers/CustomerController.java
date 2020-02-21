@@ -4,6 +4,7 @@ import com.example.demo.Customer;
 import com.example.demo.LoginObject;
 import com.example.demo.dao.CustomerDAO;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,6 @@ public class CustomerController {
 
     @GetMapping("/")
     public String indexGet(Model model) {
-        List<Customer> customer = dao.selectAll();
         model.addAttribute("loginObject", new LoginObject());
         return "index";
     }
@@ -31,18 +31,20 @@ public class CustomerController {
         System.out.println(exists);
         if (!exists) {
             System.out.println("incorrect username or password");
-            model.addAttribute("logError","logError");
+            model.addAttribute("logError", "logError");
             model.addAttribute("loginObject", new LoginObject());
             return "index";
         } else {
             Customer currentCustomer = dao.selectByUsername(loginObject.getUsername());
-            if (currentCustomer.getPassword().equals(loginObject.getPassword())) {
+            System.out.println(currentCustomer.getPassword());
+            System.out.println(loginObject.getPassword());
+            if (BCrypt.checkpw(loginObject.getPassword(), currentCustomer.getPassword())) {
                 session.setAttribute("user", currentCustomer);
                 System.out.println("Login success");
                 return "redirect:/home";
             } else {
-                System.out.println( "incorrect username or password");
-                model.addAttribute("logError","logError");
+                System.out.println("incorrect username or password");
+                model.addAttribute("logError", "logError");
                 model.addAttribute("loginObject", new LoginObject());
                 return "index";
             }
@@ -54,7 +56,14 @@ public class CustomerController {
     public String homeGet(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Customer loggedInCustomer = (Customer) session.getAttribute("user");
-        model.addAttribute("loggedInUser",loggedInCustomer);
+        System.out.println(loggedInCustomer.getFirstName());
+        System.out.println(loggedInCustomer.isAdmin());
+        if (!loggedInCustomer.isAdmin()) {
+            List<Customer> customer = dao.selectAll();
+            model.addAttribute("listOfObjects",customer);
+            model.addAttribute("isAdmin", "Set");
+        }
+        model.addAttribute("loggedInUser", loggedInCustomer);
         return "home";
     }
 
@@ -65,11 +74,18 @@ public class CustomerController {
         return "logout";
     }
 
-    @GetMapping("/users/edit/{id}")
-    public String editWithId(@PathVariable int id, Model model) {
-        Customer customer = dao.select(id);
-        model.addAttribute("customerObject", customer);
+    @GetMapping("/edit")
+    public String editWithId(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Customer loggedInCustomer = (Customer) session.getAttribute("user");
+        model.addAttribute("customerObject", loggedInCustomer);
         return "edit";
+    }
+
+    @PostMapping(path = "/users/update/{id}")
+    public String post(@PathVariable("id") int id, Customer newCustomer) {
+        dao.update(newCustomer, id);
+        return "success";
     }
 
     @GetMapping("/users/delete/{id}")
@@ -95,24 +111,15 @@ public class CustomerController {
     }
 
 
-    @GetMapping("/users/print")
-    public String get (String name, Model model) {
-        model.addAttribute("user", name);
-        return "success";
-    }
-
-
     @PostMapping(path = "/users")
     public String post(@ModelAttribute Customer newCustomer) {
+        String hashedPw = BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt());
+        newCustomer.setPassword(hashedPw);
+        System.out.println(newCustomer.getPassword());
         dao.insert(newCustomer);
         return "success";
     }
 
-    @PostMapping(path = "/users/update/{id}")
-    public String post(@PathVariable("id") int id, Customer newCustomer) {
-        dao.update(newCustomer, id);
-        return "success";
-    }
 
     @DeleteMapping(path = "/users/{id}")
     public String delete(@PathVariable("id") int id) {

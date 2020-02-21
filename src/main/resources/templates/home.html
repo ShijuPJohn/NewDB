@@ -1,14 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th ="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Welcome!</title>
 </head>
 <body>
-<h2 th:text ="'First Name :'+ ${loggedInUser.firstName}"></h2>
-<h2 th:text ="'Last Name :'+ ${loggedInUser.lastName}"></h2>
-<h2 th:text ="'E-Mail:'+ ${loggedInUser.email}"></h2>
-<h2 th:text ="'User Name :'+ ${loggedInUser.username}"></h2>
+<h2 th:text="'First Name :'+ ${loggedInUser.firstName}"></h2>
+<h2 th:text="'Last Name :'+ ${loggedInUser.lastName}"></h2>
+<h2 th:text="'E-Mail:'+ ${loggedInUser.email}"></h2>
+<h2 th:text="'User Name :'+ ${loggedInUser.username}"></h2>
 
+<a href="/edit">Edit</a>
+
+    <table th:if="${isAdmin != null}">
+    <tr>
+        <th>CUSTOMER ID</th>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>EMAIL</th>
+        <th>USERNAME</th>
+        <th>PASSWORD</th>
+    </tr>
+    <tr th:each="customerone : ${listOfObjects}">
+        <td th:text="${customerone.id}"></td>
+        <td th:text="${customerone.firstName}"></td>
+        <td th:text="${customerone.lastName}"></td>
+        <td th:text="${customerone.email}"></td>
+        <td th:text="${customerone.username}"></td>
+        <td th:text="${customerone.password}"></td>
+        <td th:text="${customerone.isAdmin}"></td>
+
+        <td><a th:href="@{/users/edit/{id}(id=${customerone.id})}">
+            <img th:src="@{/edit.png }" width="30" height="30"/></a></td>
+        <td><a th:href="@{/users/delete/{id}(id=${customerone.id})}">
+            <img th:src="@{/delete.png }" width="30" height="30"/></a></td>
+    </tr>
+</table>
 <a href="/logout">Log Out</a>
 </body>
 </html>
