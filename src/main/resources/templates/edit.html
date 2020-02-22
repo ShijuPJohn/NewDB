@@ -9,11 +9,7 @@
     <h4  name="id"  th:text="'id: '+${customerObject.id}"></h4>
     First Name: <input type="text" name="first_name" required maxlength="50" th:field="${customerObject.firstName}"> <br> <br><br>
     Second Name:<input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br>
-    email: <input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br>
-    User Name:<input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br>
-    Second Name:<input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br>
-    Requested admin privilege: <label th:text = "${customerObject.adminRequested}"></label>
-    <input type="checkbox" th:field="*{customerObject.isAdmin}" />
+    email: <input type="text" name="email" required maxlength="50" th:field="${customerObject.email}">  <br><br>
     <input type="submit" value="Register"> <input type="reset">
 </form>
 </body>

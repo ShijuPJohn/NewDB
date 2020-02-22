@@ -49,8 +49,8 @@ public class CustomerDAO {
     }
 
     public void update(Customer customer, int id) {
-        jdbcTemplate.update("UPDATE customers SET first_name = ?, last_name = ? WHERE id =?",
-                customer.getFirstName(), customer.getLastName(), id);
+        jdbcTemplate.update("UPDATE customers SET first_name = ?, last_name = ? , email = ? , is_admin = ? WHERE id =?",
+                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getIsAdmin(), id);
     }
 
     public List<Customer> selectAll() {

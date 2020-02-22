@@ -4,15 +4,15 @@
     <title>Welcome!</title>
 </head>
 <body>
-<h2 th:text="'First Name :'+ ${loggedInUser.firstName}"></h2>
-<h2 th:text="'Last Name :'+ ${loggedInUser.lastName}"></h2>
-<h2 th:text="'E-Mail:'+ ${loggedInUser.email}"></h2>
-<h2 th:text="'User Name :'+ ${loggedInUser.username}"></h2>
-<h2 th:text="'Admin privilege:'+ ${loggedInUser.isAdmin}"></h2>
+<h2 th:text="'First Name :'+ ${loggedInCustomer.firstName}"></h2>
+<h2 th:text="'Last Name :'+ ${loggedInCustomer.lastName}"></h2>
+<h2 th:text="'E-Mail:'+ ${loggedInCustomer.email}"></h2>
+<h2 th:text="'User Name :'+ ${loggedInCustomer.username}"></h2>
+<h2 th:text="'Admin privilege:'+ ${isAdmin}"></h2>
 
 <a href="/edit">Edit</a>
 
-    <table th:if="${isAdmin != null}">
+    <table th:if="${isAdmin} == true">
     <tr>
         <th>CUSTOMER ID</th>
         <th>FIRST NAME</th>
@@ -27,9 +27,9 @@
         <td th:text="${customerone.lastName}"></td>
         <td th:text="${customerone.email}"></td>
         <td th:text="${customerone.username}"></td>
-        <td th:text="${customerone.isAdmin}"><</td>
+        <td th:text="${customerone.isAdmin}"></td>
 
-        <td><a th:href="@{/users/edit/{id}(id=${customerone.id})}">
+        <td><a th:href="@{/editadmin/{id}(id=${customerone.id})}">
             <img th:src="@{/edit.png }" width="30" height="30"/></a></td>
         <td><a th:href="@{/users/delete/{id}(id=${customerone.id})}">
             <img th:src="@{/delete.png }" width="30" height="30"/></a></td>

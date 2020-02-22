@@ -3,7 +3,6 @@ package com.example.demo.controllers;
 import com.example.demo.Customer;
 import com.example.demo.LoginObject;
 import com.example.demo.dao.CustomerDAO;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,13 +49,14 @@ public class CustomerController {
     public String homeGet(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Customer loggedInCustomer = (Customer) session.getAttribute("user");
-        System.out.println(loggedInCustomer.isAdmin());
-        if (loggedInCustomer.isAdmin()) {
+        if (loggedInCustomer.getIsAdmin()) {
             List<Customer> customer = dao.selectAll();
             model.addAttribute("listOfObjects",customer);
             model.addAttribute("isAdmin", "Set");
         }
-        model.addAttribute("loggedInUser", loggedInCustomer);
+        model.addAttribute("loggedInCustomer", loggedInCustomer);
+        System.out.println(loggedInCustomer.getIsAdmin());
+        model.addAttribute("isAdmin",loggedInCustomer.getIsAdmin());
         return "home";
     }
 
@@ -78,7 +78,9 @@ public class CustomerController {
     }
 
     @PostMapping(path = "/users/update_admin/{id}")
-    public String updateAdmin(@PathVariable("id") int id, Customer newCustomer) {
+    public String updateAdmin(@PathVariable("id") int id, @ModelAttribute Customer newCustomer) {
+        System.out.println(newCustomer.getIsAdmin());
+        System.out.println(newCustomer.getId());
         dao.update(newCustomer, id);
         return "success";
     }
@@ -100,8 +102,11 @@ public class CustomerController {
 
 
     @GetMapping("/users/delete/{id}")
-    public String deleteG(@PathVariable int id) {
-        dao.delete(id);
+    public String deleteG(@PathVariable int id, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        if (session!=null) {
+            dao.delete(id);
+        }
         return "success";
     }
 
