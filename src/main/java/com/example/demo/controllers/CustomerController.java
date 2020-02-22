@@ -58,7 +58,7 @@ public class CustomerController {
         Customer loggedInCustomer = (Customer) session.getAttribute("user");
         System.out.println(loggedInCustomer.getFirstName());
         System.out.println(loggedInCustomer.isAdmin());
-        if (!loggedInCustomer.isAdmin()) {
+        if (loggedInCustomer.isAdmin()) {
             List<Customer> customer = dao.selectAll();
             model.addAttribute("listOfObjects",customer);
             model.addAttribute("isAdmin", "Set");
@@ -112,11 +112,11 @@ public class CustomerController {
 
 
     @PostMapping(path = "/users")
-    public String post(@ModelAttribute Customer newCustomer) {
+    public String post(@ModelAttribute Customer newCustomer,HttpSession session) {
         String hashedPw = BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt());
         newCustomer.setPassword(hashedPw);
-        System.out.println(newCustomer.getPassword());
         dao.insert(newCustomer);
+        session.setAttribute("user", newCustomer);
         return "success";
     }
 

@@ -26,8 +26,6 @@
         <td th:text="${customerone.lastName}"></td>
         <td th:text="${customerone.email}"></td>
         <td th:text="${customerone.username}"></td>
-        <td th:text="${customerone.password}"></td>
-        <td th:text="${customerone.isAdmin}"></td>
 
         <td><a th:href="@{/users/edit/{id}(id=${customerone.id})}">
             <img th:src="@{/edit.png }" width="30" height="30"/></a></td>

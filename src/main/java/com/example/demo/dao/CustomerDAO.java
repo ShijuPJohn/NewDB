@@ -25,7 +25,7 @@ public class CustomerDAO {
 
     public void insert(Customer customer) {
         jdbcTemplate.update("INSERT INTO customers(first_name, last_name, email, user_name, password, is_admin) VALUES (?,?,?,?,?,?)",
-                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), "TRUE");
+                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), true);
     }
 
     public boolean exists(String username){
