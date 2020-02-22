@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit a customer as admin</title>
+</head>
+<body>
+<h3>Edit a customer</h3>
+<form action="#"  th:object="${CustomerToBeEdited}" th:action="@{/users/update_admin/{id}(id=${CustomerToBeEdited.id})}" th:method="post">
+    <h4  name="id"  th:text="'id: '+${customerObject.id}"></h4>
+    First Name: <input type="text" name="first_name" required maxlength="50" th:field="${CustomerToBeEdited.firstName}"> <br> <br><br>
+    Second Name:<input type="text" name="first_name" required maxlength="50" th:field="${CustomerToBeEdited.lastName}">  <br><br>
+    email: <input type="text" name="first_name" required maxlength="50" th:field="${CustomerToBeEdited.email}">  <br><br><input type="text" name="first_name" required maxlength="50" th:field="${customerObject.lastName}">  <br><br>
+    Requested admin privilege: <label th:text = "${CustomerToBeEdited.adminRequested}"></label>
+    <input type="checkbox" th:field="*{CustomerToBeEdited.isAdmin}" />
+    <input type="submit" value="Register"> <input type="reset">
+</form>
+</body>
+</html>

@@ -20,26 +20,26 @@ public class CustomerDAO {
     public void initDB() {
         jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS customers(id BIGSERIAL, first_name VARCHAR(255)," +
                 "last_name VARCHAR(255), email VARCHAR(255) UNIQUE, user_name VARCHAR(255) UNIQUE," +
-                " password VARCHAR(255), is_admin BOOLEAN)");
+                " password VARCHAR(255), is_admin BOOLEAN, admin_requested BOOLEAN)");
     }
 
     public void insert(Customer customer) {
-        jdbcTemplate.update("INSERT INTO customers(first_name, last_name, email, user_name, password, is_admin) VALUES (?,?,?,?,?,?)",
-                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), true);
+        jdbcTemplate.update("INSERT INTO customers(first_name, last_name, email, user_name, password, is_admin, admin_requested) VALUES (?,?,?,?,?,?,?)",
+                customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getUsername(), customer.getPassword(),false, customer.isAdminRequested());
     }
 
-    public boolean exists(String username){
-        return !jdbcTemplate.queryForList("SELECT * FROM customers WHERE user_name=?",username).isEmpty();
+    public boolean exists(String username) {
+        return !jdbcTemplate.queryForList("SELECT * FROM customers WHERE user_name=?", username).isEmpty();
     }
 
 
     public Customer select(int id) {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin FROM customers WHERE id = ?",
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin, admin_requested FROM customers WHERE id = ?",
                 new Object[]{id}, new CustomerRowMapper());
     }
 
     public Customer selectByUsername(String username) {
-        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin FROM customers WHERE user_name = ?",
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin, admin_requested FROM customers WHERE user_name = ?",
                 new Object[]{username}, new CustomerRowMapper());
     }
 

@@ -7,18 +7,20 @@ public class Customer {
     private String username;
     private String email;
     private String password;
+    private boolean adminRequested;
     private boolean isAdmin;
 
     public Customer() {
     }
 
-    public Customer(long id, String firstName, String lastName, String username, String email, String password, boolean isAdmin) {
+    public Customer(long id, String firstName, String lastName, String username, String email, String password, boolean adminRequested, boolean isAdmin) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.adminRequested = adminRequested;
         this.isAdmin = isAdmin;
     }
 
@@ -68,6 +70,14 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isAdminRequested() {
+        return adminRequested;
+    }
+
+    public void setAdminRequested(boolean adminRequested) {
+        this.adminRequested = adminRequested;
     }
 
     public boolean isAdmin() {

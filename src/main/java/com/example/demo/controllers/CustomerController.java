@@ -28,22 +28,16 @@ public class CustomerController {
     @PostMapping(path = "/")
     public String loginPost(LoginObject loginObject, Model model, HttpSession session) {
         boolean exists = dao.exists(loginObject.getUsername());
-        System.out.println(exists);
         if (!exists) {
-            System.out.println("incorrect username or password");
             model.addAttribute("logError", "logError");
             model.addAttribute("loginObject", new LoginObject());
             return "index";
         } else {
             Customer currentCustomer = dao.selectByUsername(loginObject.getUsername());
-            System.out.println(currentCustomer.getPassword());
-            System.out.println(loginObject.getPassword());
             if (BCrypt.checkpw(loginObject.getPassword(), currentCustomer.getPassword())) {
                 session.setAttribute("user", currentCustomer);
-                System.out.println("Login success");
                 return "redirect:/home";
             } else {
-                System.out.println("incorrect username or password");
                 model.addAttribute("logError", "logError");
                 model.addAttribute("loginObject", new LoginObject());
                 return "index";
@@ -56,7 +50,6 @@ public class CustomerController {
     public String homeGet(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         Customer loggedInCustomer = (Customer) session.getAttribute("user");
-        System.out.println(loggedInCustomer.getFirstName());
         System.out.println(loggedInCustomer.isAdmin());
         if (loggedInCustomer.isAdmin()) {
             List<Customer> customer = dao.selectAll();
@@ -73,6 +66,22 @@ public class CustomerController {
         session.invalidate();
         return "logout";
     }
+    @GetMapping("/editadmin/{id}")
+    public String editAdmin(@PathVariable int id, Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Customer loggedInCustomer = (Customer) session.getAttribute("user");
+        if (loggedInCustomer!=null){
+            Customer customerToEdit = dao.select(id);
+            model.addAttribute("CustomerToBeEdited", customerToEdit);
+        }
+        return "edit_admin";
+    }
+
+    @PostMapping(path = "/users/update_admin/{id}")
+    public String updateAdmin(@PathVariable("id") int id, Customer newCustomer) {
+        dao.update(newCustomer, id);
+        return "success";
+    }
 
     @GetMapping("/edit")
     public String editWithId(Model model, HttpServletRequest request) {
@@ -87,6 +96,8 @@ public class CustomerController {
         dao.update(newCustomer, id);
         return "success";
     }
+
+
 
     @GetMapping("/users/delete/{id}")
     public String deleteG(@PathVariable int id) {
