@@ -13,8 +13,10 @@
     Second Name:<input type="text" name="first_name" required maxlength="50" th:field="${CustomerToBeEdited.lastName}">
     <br><br>
     email: <input type="text" name="email" required maxlength="50" th:field="${CustomerToBeEdited.email}"> <br><br>
-    Requested admin privilege: <label th:text="${CustomerToBeEdited.adminRequested}"></label>
-    <input type="checkbox" th:field="${CustomerToBeEdited.isAdmin}" value = "true"/>
+    Requested admin privilege: <label th:text="${CustomerToBeEdited.adminRequested}"></label><br>
+    <span th:if="${CustomerToBeEdited.adminRequested} == true">   Grant admin privilege <input type="checkbox"
+                                                                                               th:field="${CustomerToBeEdited.isAdmin}"
+                                                                                               value="true"/></span>
     <input type="submit" value="Register"> <input type="reset">
 </form>
 </body>
