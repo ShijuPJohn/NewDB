@@ -46,7 +46,8 @@ public class CustomerController {
     }
 
     @GetMapping("/forwardLogin")
-    public String prodducer(@RequestParam("code") String authorizationCode, Model model) {
+    public String prodducer(@RequestParam("code") String authorizationCode, Model model, HttpSession session) {
+
         OAuth2Operations operations = factory.getOAuthOperations();
         AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "https://localhost:8443/forwardLogin",
                 null);
@@ -59,7 +60,16 @@ public class CustomerController {
         model.addAttribute("firstName", userProfile.getFirstName());
         model.addAttribute("lastName", userProfile.getLastName());
         model.addAttribute("email", userProfile.getEmail());
-        return "details";
+        Customer customer = dao.selectByEmail(userProfile.getEmail());
+        if (customer != null) {
+            session.setAttribute("user", customer);
+            return "redirect:/home";
+        }
+        else {
+
+            return "details";
+        }
+
 
     }
 

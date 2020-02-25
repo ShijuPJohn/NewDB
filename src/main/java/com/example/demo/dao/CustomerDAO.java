@@ -42,7 +42,10 @@ public class CustomerDAO {
         return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, user_name, password, is_admin, admin_requested FROM customers WHERE user_name = ?",
                 new Object[]{username}, new CustomerRowMapper());
     }
-
+    public Customer selectByEmail(String email) {
+        return jdbcTemplate.queryForObject("SELECT id, first_name, last_name, email, is_admin, admin_requested FROM customers WHERE email = ?",
+                new Object[]{email}, new CustomerRowMapper());
+    }
     public void delete(int id) {
         String command = "DELETE FROM customers WHERE id =" + id;
         jdbcTemplate.execute(command);
