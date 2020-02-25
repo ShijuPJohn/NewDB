@@ -3,11 +3,11 @@ package com.example.demo.controllers;
 import com.example.demo.Customer;
 import com.example.demo.LoginObject;
 import com.example.demo.dao.CustomerDAO;
-import org.apache.catalina.User;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.oauth2.AccessGrant;
 import org.springframework.social.oauth2.OAuth2Operations;
@@ -27,8 +27,8 @@ public class CustomerController {
     public CustomerDAO dao;
 
 
-    private FacebookConnectionFactory factory = new FacebookConnectionFactory("233585174315729",
-            "c2d3b1e92e9b052ea6119d4c79758bac");
+    private FacebookConnectionFactory factory = new FacebookConnectionFactory("596906804373407",
+            "3a3324ca796d764f72702d8cd89c76f0");
 
     @GetMapping(value = "/useApplication")
     public String producer() {
@@ -36,7 +36,7 @@ public class CustomerController {
         OAuth2Operations operations = factory.getOAuthOperations();
         OAuth2Parameters params = new OAuth2Parameters();
 
-        params.setRedirectUri("/forwardLogin");
+        params.setRedirectUri("https://localhost:8443/forwardLogin");
         params.setScope("email,public_profile");
 
         String url = operations.buildAuthenticateUrl(params);
@@ -45,19 +45,21 @@ public class CustomerController {
 
     }
 
-    @RequestMapping(value = "/forwardLogin")
-    public ModelAndView prodducer(@RequestParam("code") String authorizationCode) {
+    @GetMapping("/forwardLogin")
+    public String prodducer(@RequestParam("code") String authorizationCode, Model model) {
         OAuth2Operations operations = factory.getOAuthOperations();
-        AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "/forwardLogin",
+        AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "https://localhost:8443/forwardLogin",
                 null);
 
         Connection<Facebook> connection = factory.createConnection(accessToken);
         Facebook facebook = connection.getApi();
         String[] fields = {"id", "email", "first_name", "last_name"};
         User userProfile = facebook.fetchObject("me", User.class, fields);
-        ModelAndView model = new ModelAndView("details");
-        model.addObject("user", userProfile);
-        return model;
+        model.addAttribute("id", userProfile.getId());
+        model.addAttribute("firstName", userProfile.getFirstName());
+        model.addAttribute("lastName", userProfile.getLastName());
+        model.addAttribute("email", userProfile.getEmail());
+        return "details";
 
     }
 

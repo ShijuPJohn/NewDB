@@ -1,0 +1,773 @@
+[33mcommit 6c05c7e6f67adf142682b384a72b0670f927b93c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 25 18:19:57 2020 +0530
+
+    add an option in index page login with facebook
+
+[33mcommit 887ff9e75c6725dbe4397f570efcef8d6967bebd[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 23 20:07:39 2020 +0530
+
+    add keystore file and change application.properties
+
+[33mcommit c17b8e5d8edd8d3101b913033ed0ae32c21b0700[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 23 05:35:26 2020 +0530
+
+    hide grant admin privilege option if the user hasn't requested it
+
+[33mcommit 756f664b98cb4a37ed91c8d94df4b0911f77358d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 23 05:00:14 2020 +0530
+
+    correctly implement roles
+
+[33mcommit d85426f5f5df6bb61202d437953dd5b5a5b8afcf[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 23 03:24:35 2020 +0530
+
+    add edit as admin template
+
+[33mcommit 246550fe3fd6d2f41d78af348bfb1eb0c2bda647[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 22 07:18:47 2020 +0530
+
+    create basic admin role
+
+[33mcommit 43b6b3b2565a54038bf25e811a0c76da8096945a[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 21 23:15:39 2020 +0530
+
+    save password as encrypted using BCrypt
+
+[33mcommit bdd2f8fa92606f29451b0cc480a351778797658f[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 21 05:24:02 2020 +0530
+
+    add incorrect login message on index page
+
+[33mcommit 2bd617a0aef1dd3203bedd5c63a56e4a74b7e2ef[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 21 01:25:56 2020 +0530
+
+    add log in and log out
+
+[33mcommit a37f18dac762c2e71c2bf5b5b1e74c010d7a63c6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Thu Feb 20 22:41:01 2020 +0530
+
+    Correctly implement login credentials check
+
+[33mcommit 23238ff7577ba62823bf00bd625de051160cb31d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Thu Feb 20 04:22:46 2020 +0530
+
+    add drop table if exists
+
+[33mcommit c6d3fe91556da8f22c368d9a410933832e69adcb[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Thu Feb 20 04:03:00 2020 +0530
+
+    add login screen, check if username and password is correct
+
+[33mcommit 3aa4f68fdecb91fa6d845bdd48d7734c02ea69c7[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 18 06:43:11 2020 +0530
+
+    add go home option in the success page
+
+[33mcommit 6e27ab11930f927f2abdc66cd17bc54bc8246634[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 18 06:32:15 2020 +0530
+
+    add image icons for edit and delete
+
+[33mcommit a876f5e2c2201d55883123f5c5a547d34fb6c0dd[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 18 05:24:20 2020 +0530
+
+    correct a typo
+
+[33mcommit d91520316a8b6ec5c41a9fa28dbdd931ccc9f3d3[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 18 05:22:58 2020 +0530
+
+    add edit and delete as options
+
+[33mcommit cd2243ea694ddcd5ec0405aae6749bd5192dee77[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Tue Feb 18 04:59:28 2020 +0530
+
+    add option to update and delete in the index page
+
+[33mcommit 95d4d05bc5545329c3f11c97b4d9abefbddff38d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Mon Feb 17 23:54:42 2020 +0530
+
+    change table headers
+
+[33mcommit d606057f8ab0aa16eb12b1b964f70d01bb1b01fa[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Mon Feb 17 23:35:53 2020 +0530
+
+    display contents of database in the index page, in a table
+
+[33mcommit 5144272cce479242b873cd5138a195e29611b612[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Mon Feb 17 13:05:13 2020 +0530
+
+    add a view and get method for the view
+
+[33mcommit 90cab92a4af2e395fb9e0254467e79a3aa3c9054[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 02:15:10 2020 +0530
+
+    Delete main.yml
+
+[33mcommit ba3f618dd8c5f9d4d6078dffe6d4e5acb1a7d8d2[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 02:14:42 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 6bf882d531e496eaf3ced0fef1c317d212b72b19[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 02:11:44 2020 +0530
+
+    Update main.yml
+
+[33mcommit bb470131a4da66b281bd90704e4492acef73324d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 01:55:49 2020 +0530
+
+    Create main.yml
+
+[33mcommit 1507d4f63408ffdc3931b4e515095ac34316d674[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 01:46:44 2020 +0530
+
+    Delete main.yml
+
+[33mcommit 4f74c354984c4c819bb6add65a60ecb664712b89[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 01:46:32 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 0ab5bb47a661c1a1f3afaba84b9e2cd1e99ff2a8[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 01:16:15 2020 +0530
+
+    Update main.yml
+
+[33mcommit dde62460d131ecfe6a5e0e4cf6acaf4ffc1ee325[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 01:06:11 2020 +0530
+
+    Update main.yml
+
+[33mcommit ad8e67948559080b37dcf524e9dc23bc509dd6f1[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 00:47:57 2020 +0530
+
+    Create main.yml
+
+[33mcommit 76e354fe35559ece61b91c48c86d50f341df9a9e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 00:29:46 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 44d82a35d2e43adb86203dc8409e582c71c0cc96[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sun Feb 16 00:16:40 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit fe93699e7325375c5df4bcb2adecf49c58c7ef30[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:17:45 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit af004dd92b7dcfc99ce22848d89aca7dde11889b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:16:21 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit c093ded96eca5cdba764e77414f4983548f9460e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:15:50 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 55d888f9a2568baca40d8cf2fcc201bbb7a02386[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:06:37 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 192ae56153d5efc240da5e8eee246e7875557268[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:06:22 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 705b30ccc7d723c1ee3b1e5511b86f07501b0367[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 17:02:36 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 155a77cf618ed162b8126d343baef781ce08358b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 16:59:53 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit a9eb00e74e165bded9f429f9679bb38749180660[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 16:59:49 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit bb0ac05f4f0d1fded6467b41db8053e0a55b22b2[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 16:52:50 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 51863886a86421b93921922d38abd9b8fbb79a96[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 16:49:54 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 5f7dc7b6baeca02dd8c6ddedbe7f8ea743cfc0db[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 15:43:43 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit f1f99f8b36c661cfdfa24ae64643f42c7393c92e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 15:38:18 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit aafe83e23c46560cb32c460b6a969c22e70b14ec[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 15:34:33 2020 +0530
+
+    Create sadfsf
+
+[33mcommit c39f2c01f8cf0bec3cdfb43399ecad19458d41b5[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 15:33:51 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 387915fcf0dc004e83991f0f3483e9fc87903c9d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 15:29:25 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 16d65ac3b19281258802bf2570138c99cc35d7e3[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 13:46:35 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 486893163b230b66faa2813a527b3e2840fb990e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 13:16:35 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 6da8c3882bd909b7e4c6ede5762e7f5b4a9d30b6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 13:10:50 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 41ad3700f003d5fe1bdfcc9582f36104653c9ba1[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 13:08:25 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit ab563cd08d5a64ae79e0f2779b0f2e89feeef6a2[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 12:14:11 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit b35c5a0c4488391bf152017cd9180ea4556f2f1b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 12:10:43 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit d989e8c9025d5c1c67f0ef091f2d77825957c728[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 12:07:12 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 06ccd6704409d30bfea81eb32e4ca5a67be0b6d9[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 12:06:38 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 603188064207190dd1fd3bd34af27d651338dfd8[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 11:19:37 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit c1dff26f9b319a14646f7f9e72775c44e7a99771[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 04:10:22 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit c9bb3cbac309ca09abe3e4e06ae493f21d38019b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 04:09:41 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 0135185887525dfab19bb3c3d354b42e51b12c71[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 04:07:46 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit e0926f939292229002e41736dd4626b6df6a7cd0[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 04:00:32 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 809579bea475f45fdb0a3b53ff48dc37ccfbbc08[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:55:11 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit f30d8ca88d72307326a58eb8063d690c81e3a006[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:51:40 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 2876b2ea68733a7c80b35afe954b4a2475f79885[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:47:52 2020 +0530
+
+    Delete main.yml
+
+[33mcommit 733ebb7e12cb16d351a7a2f55a5cf7545eba531b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:47:40 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 3857b02298cb198c8ec36f106335eb393e69bcfd[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:38:18 2020 +0530
+
+    Update main.yml
+
+[33mcommit d73b17f79d2d3d1eed415b929c2b071f67929284[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 03:35:27 2020 +0530
+
+    Create main.yml
+
+[33mcommit 6afb09df8d2b8ddfbfa2eff889911ebd6951ebe1[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 02:48:41 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 05bb7ac81caa7efe0f9f28af8c18c3aee8cf644c[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 01:42:32 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit cd9b9ee8fde92f5d55cc8bc760084a69679c9d9a[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 01:39:51 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 33e51727dba0fc55271916da26af86da109304b5[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Sat Feb 15 00:16:03 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit fd080d80c3e184c4a479ecd9fe20eb2c20e6882d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 22:52:55 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit c3260604d1df9ac00a5943e95c6bf34fb4541015[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 22:51:19 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit dafa1343329a5ecbd5bcc1d04c8b1c19e2bda9dd[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 22:46:42 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit c768f9ca63e7ab7437eed43e449d1cae396f651c[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:50:21 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit fa9bb7849160b9cf318f9607c5f9bb48d9d105e3[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:48:02 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 18dd69608b4a334a74348901b68f495d94f4c3f2[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:43:03 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit a5513b9062e21e2b176719b6fbccdabe32c57441[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:38:21 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 0fb94555cb0be6bf9ef198673c9294b58a6b05f6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:35:07 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 1b9a212d47df509d2fb861e4b217c251d266fcd3[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:30:20 2020 +0530
+
+    add dockerfile
+
+[33mcommit 009ab37795f051b806ada28cfc32039249f2a0a2[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:21:19 2020 +0530
+
+    Delete Dockerfile
+
+[33mcommit 23c49fca182c15e50990f7483f838ec68f9d0cda[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:16:29 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 498d8fbc25e21da233de4f670ad2e5379f66edf1[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 21:01:22 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 30f97e84d84aa22f2acf3f43349167ca808a30d9[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:58:25 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 7248d975276a6bccdf13ef3516b0437960fe2462[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:56:30 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 3c9cdbbb633c284e0c1f80eddc374f51c509c1ac[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:56:08 2020 +0530
+
+    Create gradle.yml
+
+[33mcommit ce20919a286122a866cdff6475ab6b195b676e13[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:55:23 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit f311c9ca86605d4e9d12cb34b65e64353a800d31[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:48:35 2020 +0530
+
+    Delete gradle.yml
+
+[33mcommit aeed89ceee7e93d6e11717705aca5670c2a1683e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:48:23 2020 +0530
+
+    Delete dockerimage.yml
+
+[33mcommit 9cf6c1fa158a7ff2c438a3be63fccfc5d440a6dc[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:42:42 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 0aa5d73238575b95b2348bce780eb429aa57a630[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:40:01 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 88b6850ea6bcf8faf92415812466f20a333c4317[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:38:14 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 67be67546d71f8d851a03f78d5ad694f32f14723[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:24:26 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit d92a556c3991bef02469d68982a6836f7781c569[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:19:04 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 1a4119d805a29581a96e936c760db6fbeeee0168[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:10:55 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit b783aaba1e517d2a60b836e932e4bba7b292eaa9[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:07:23 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 91f711ce52a6a1a4a6e27e5d2e6206f246f4dda7[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:03:30 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit e3193ef38cb4103c8097d85550ecf686f912935e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 20:00:20 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 94a05948fc83b21ece4a53cda1ea978cdb86801d[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 19:55:21 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 7a6aca62c591aba4e09698e6c49a34148f70aeb0[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 19:49:37 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 092704c3676edc3475afc5aeb064a47880b7c858[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:57:08 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit f7f9cb21e6023b45b49a72902769a32c6d65bc55[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:50:30 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit b9a3ba77b9627b6262b9c6542f3c56cdda233e4a[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:48:33 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit dd3bb3e45aedbec855a6d90b27494b14f1bad996[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:45:26 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 688c0be3e3ea9871f70cc7ec22e3a4be0d6a53ed[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:43:09 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 5d1d3d1c437382940135af901dab8f444d32d306[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:39:49 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 7dde1579c0e3c67fe59ec814570caf922a8c52ca[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:37:27 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 7c4bf2d192da00a4c7ec6145af3514ad4697c784[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 15:34:29 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 880fa17bd9a8441b1064bda0cecf0e0e3bfa2821[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 07:12:10 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit a45c667a5df960da25ce19ebb97fed5a497deae0[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 07:10:03 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit e576a99c91a626b3222c3b8465fb98118ad9576b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 07:05:04 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 01b465676d5b3896290ce5ba1e5820be9d5f35f3[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:57:49 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 3fed5e92eb418ebf841e673f41e834c694a1f740[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:57:38 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 60ad85b0816c49cd233f1e77bb1082901bc9227c[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:49:37 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 1b652ff0fe70b04ff1b05d5b2044087a09dc7bef[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:47:23 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 4760f96ff35b9996b5d3c3820f5befa1828613e6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:43:41 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 2a0d1028c8dde601c920980e0fcb912a269be712[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:41:30 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit c447bad28e17a41f537cedfc210bbf284d816fef[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:39:50 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit d085ed5e4c4242677706d6ba60e1c2f4d37878d5[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:38:34 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 590557b1c414892457468c07b98433e199cf4259[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:37:57 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 6b1804a0850eec3b254095db362aa5ec5bd00d17[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:35:28 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 4e13eee757640122f18b8e568664dbe9b10498f6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:34:58 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit f3e66d78c0c813e5cb244a30ba4cc997bf300f08[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:32:39 2020 +0530
+
+    Update Dockerfile
+
+[33mcommit 74c75dce97243fd76b6912c9d69cbdaab245e2ae[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:26:34 2020 +0530
+
+    Update dockerimage.yml
+
+[33mcommit 90e1c2bebc540d1a1b733c7a970ea0dfec6ced3e[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:23:52 2020 +0530
+
+    Update gradle.yml
+
+[33mcommit 6b25c7b979f38eba7957d3cb49919a9f3d255f5b[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:22:02 2020 +0530
+
+    Add files via upload
+
+[33mcommit 96d870393079bd07078ba5afc178e4e57a198963[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:19:49 2020 +0530
+
+    Update dockerimage.yml
+
+[33mcommit ef2c091cfab8f6abf1755e06d6cfd09edd5a8883[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 06:14:10 2020 +0530
+
+    Update dockerimage.yml
+
+[33mcommit 827f97fa136764eca711b149d456bbf8e5beb250[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 05:59:30 2020 +0530
+
+    Create dockerimage.yml
+
+[33mcommit 11cf13353419bd407b25a8a2b2e74f180d4fd6c9[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 05:56:42 2020 +0530
+
+    Create gradle.yml
+
+[33mcommit 12e9bcd866c3b446dab16f9ab8a2b7b1b97572e6[m
+Author: ShijuPJohn <shijupjohn4u@gmail.com>
+Date:   Fri Feb 14 05:55:26 2020 +0530
+
+    initial commit
