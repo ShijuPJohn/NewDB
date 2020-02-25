@@ -23,6 +23,8 @@ import java.util.List;
 
 @Controller
 public class CustomerController {
+    Customer customer1;
+
     @Autowired
     public CustomerDAO dao;
 
@@ -36,7 +38,7 @@ public class CustomerController {
         OAuth2Operations operations = factory.getOAuthOperations();
         OAuth2Parameters params = new OAuth2Parameters();
 
-        params.setRedirectUri("https://localhost:8443/forwardLogin");
+        params.setRedirectUri("https://ec2-13-58-185-237.us-east-2.compute.amazonaws.com:8443/forwardLogin");
         params.setScope("email,public_profile");
 
         String url = operations.buildAuthenticateUrl(params);
@@ -49,28 +51,41 @@ public class CustomerController {
     public String prodducer(@RequestParam("code") String authorizationCode, Model model, HttpSession session) {
 
         OAuth2Operations operations = factory.getOAuthOperations();
-        AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "https://localhost:8443/forwardLogin",
+        AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "https://ec2-13-58-185-237.us-east-2.compute.amazonaws.com:8443/forwardLogin",
                 null);
 
         Connection<Facebook> connection = factory.createConnection(accessToken);
         Facebook facebook = connection.getApi();
         String[] fields = {"id", "email", "first_name", "last_name"};
         User userProfile = facebook.fetchObject("me", User.class, fields);
-        model.addAttribute("id", userProfile.getId());
-        model.addAttribute("firstName", userProfile.getFirstName());
-        model.addAttribute("lastName", userProfile.getLastName());
-        model.addAttribute("email", userProfile.getEmail());
+
         Customer customer = dao.selectByEmail(userProfile.getEmail());
         if (customer != null) {
             session.setAttribute("user", customer);
             return "redirect:/home";
+        } else {
+            customer1 = new Customer();
+            customer1.setEmail(userProfile.getEmail());
+            customer1.setFirstName(userProfile.getFirstName());
+            customer1.setLastName(userProfile.getLastName());
+            customer1.setUsername(userProfile.getFirstName() + userProfile.getLastName());
+
+            model.addAttribute("newCustomer", customer1);
+            model.addAttribute("firstName", userProfile.getFirstName());
+            model.addAttribute("lastName", userProfile.getLastName());
+            model.addAttribute("email", userProfile.getEmail());
+            model.addAttribute("username",customer1.getUsername());
+            return "signup_fb";
         }
-        else {
-
-            return "details";
-        }
+    }
 
 
+    @PostMapping(path = "/fbsignup")
+    public String fbsignup(@ModelAttribute Customer newCustomer, HttpSession session) {
+        customer1.setAdminRequested(newCustomer.isAdminRequested());
+        dao.insert(customer1);
+        session.setAttribute("user", customer1);
+        return "success";
     }
 
 
@@ -187,6 +202,7 @@ public class CustomerController {
     public String post(@ModelAttribute Customer newCustomer, HttpSession session) {
         String hashedPw = BCrypt.hashpw(newCustomer.getPassword(), BCrypt.gensalt());
         newCustomer.setPassword(hashedPw);
+        System.out.println(newCustomer);
         dao.insert(newCustomer);
         session.setAttribute("user", newCustomer);
         return "success";

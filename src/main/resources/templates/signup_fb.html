@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello World!</title>
+</head>
+<body>
+<h3>Sign Up Here</h3>
+<h2 th:text ="'First Name, '+ ${firstName}"></h2>
+<h2 th:text ="'Last Name, '+ ${lastName}"></h2>
+<h2 th:text ="'email, '+ ${email}"></h2>
+<h2 th:text ="'User Name, '+ ${username}"></h2>
+<form action="#" th:action="@{/fbsignup}" th:object="${newCustomer}" method="post">
+    Request Admin Privilege <input type="checkbox" th:field="${newCustomer.adminRequested}">
+    <input type="submit" value="Register"> <input type="reset">
+</form>
+</body>
+</html>
