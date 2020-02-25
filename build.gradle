@@ -18,6 +18,9 @@ dependencyManagement {
 	}
 }
 dependencies {
+	compile "org.springframework.social:spring-social-facebook:2.0.3.RELEASE"
+	compile 'org.springframework.social:spring-social-core:2.0.0.M4'
+	compile "org.springframework.social:spring-social-facebook"
 	implementation "org.mindrot:jbcrypt:0.4"
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
@@ -30,4 +33,9 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+repositories {
+	maven {
+		url 'https://repo.spring.io/libs-milestone'
+	}
 }
